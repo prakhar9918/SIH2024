@@ -1,0 +1,44 @@
+<% layout("../views/layout/boilerplate.ejs")%>
+<body>
+    <div class="signup-form">
+    <h2>Patient Signup</h2>
+    <form id="patientSignupForm" method="POST" action="/register">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address">
+
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text" id="phoneNumber" name="phoneNumber" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <h3>Emergency Contact</h3>
+      <label for="emergencyName">Name</label>
+      <input type="text" id="emergencyName" name="emergencyName">
+
+      <label for="relationship">Relationship</label>
+      <input type="text" id="relationship" name="relationship">
+
+      <label for="emergencyPhone">Phone Number</label>
+      <input type="text" id="emergencyPhone" name="emergencyPhone">
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+  </body>

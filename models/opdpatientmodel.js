@@ -36,6 +36,9 @@ const opdpatientSchema = new mongoose.Schema({
   medications: {
     type: [String], 
   },
+  subject : {
+    type: String
+  },
   emergencyContact: {
     name: String,
     relationship: String,

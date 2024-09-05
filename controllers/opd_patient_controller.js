@@ -10,6 +10,9 @@ const opdpatient_reg = async(req,res) =>{
             address,
             phoneNumber,
             email,
+            medicalHistory,
+            medications,
+            subject,
             emergencyContact
           } = req.body;
         
@@ -21,7 +24,11 @@ const opdpatient_reg = async(req,res) =>{
             address,
             phoneNumber,
             email,
+            medicalHistory,
+            medications,
+            subject,
             emergencyContact,
+            dateOfRegistration: new Date(),
           });
     
           await newPatient.save();
