@@ -21,7 +21,8 @@ const patientApi = require("./routes/patient_routes");
 app.use(patientApi);
 
 app.get('/', (req, res) => {
-  res.send('Welcome to my server!');
+  // res.send('Welcome to my server!');
+  res.render("../views/patient/index.ejs")
 });
 
 app.listen(port, () => {
