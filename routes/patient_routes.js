@@ -8,4 +8,8 @@ router.get('/registerpatient', (req, res) => {
     res.render("../views/patient/signup.ejs");
 });
 
+router.get('/registerOpdPatient', (req,res)=>{
+    res.render("../views/patient/opdSignUp.ejs")
+})
+
 module.exports = router;
