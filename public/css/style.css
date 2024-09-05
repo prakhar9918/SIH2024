@@ -108,7 +108,7 @@ body{
   text-align: center;
 }
 
-select{
+select, input{
   display: block;
   outline: none;
   width: 600px;
