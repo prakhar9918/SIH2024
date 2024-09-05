@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT;
 
+const patientApi = require("./routes/patient_routes");
+app.use(patientApi);
 
 app.get('/', (req, res) => {
   res.send('Welcome to my server!');
