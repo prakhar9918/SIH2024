@@ -349,9 +349,11 @@ body
 }
 
 .aim-card{
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: auto;
     align-items: center;
     background-color: rgb(132, 128, 86);
     padding:1.6rem;
@@ -421,7 +423,7 @@ body
 #containerFooter
 {
     font-family: 'Lato', sans-serif;
-    height: 120%;
+    height: 100%;
     width:  auto;
     background-color: rgb(29, 29, 29);
     color: white;
