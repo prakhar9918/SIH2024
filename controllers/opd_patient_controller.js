@@ -12,6 +12,7 @@ const opd_register = async (req, res) => {
             age,
             password,
             gender,
+            appointmentDate,
             address,
             phoneNumber,
             email,
@@ -20,9 +21,10 @@ const opd_register = async (req, res) => {
             emergencyName,
             relationship,
             emergencyPhoneNumber,
-            appointmentDate
         } = req.body;
-
+        if(!appointmentDate){
+            console.log("appointmentDate is required");
+        }
         // Create a new OPD patient record
         const newPatient = new opdPatient({
             department,
@@ -32,6 +34,7 @@ const opd_register = async (req, res) => {
             age,
             password,
             gender,
+            appointmentDate,
             address,
             phoneNumber,
             email,
@@ -42,7 +45,6 @@ const opd_register = async (req, res) => {
                 relationship,
                 phoneNumber: emergencyPhoneNumber
             },
-            appointmentDate
         });
 
         // Save the patient to the database

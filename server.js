@@ -3,10 +3,13 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const path =  require('path');
 const ejsMate = require('ejs-mate');
+const connectDb = require('./init/db');
+
 
 const app = express();
 
 dotenv.config();
+connectDb();
 app.use(express.json());
 app.engine("ejs", ejsMate);
 app.set("view engine","ejs");

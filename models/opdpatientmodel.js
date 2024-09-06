@@ -29,6 +29,10 @@ const opdpatientSchema = new mongoose.Schema({
     enum: ['Male', 'Female', 'Other'],
     required: true
   },
+  appointmentDate: {
+    type: Date,
+    required: true
+  },
   address: {
     type: String
   },
@@ -58,10 +62,7 @@ const opdpatientSchema = new mongoose.Schema({
       type: String
     }
   },
-  appointmentDate: {
-    type: Date,
-    required: true
-  },
+ 
   dateOfRegistration: {
     type: Date,
     default: Date.now
