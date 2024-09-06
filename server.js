@@ -9,6 +9,7 @@ const app = express();
 dotenv.config();
 app.use(express.json());
 app.engine("ejs", ejsMate);
+app.use(express.static('public'));
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"view"));
 app.use(express.static(path.join(__dirname,"/public")));
