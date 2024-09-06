@@ -1,8 +1,13 @@
 const opdPatient = require('../models/opdpatientmodel');
 
-const opdpatient_reg = async(req,res) =>{
-    try{
-       const {
+// Controller to handle OPD Patient Registration
+const opd_register = async (req, res) => {
+    try {
+        // Extracting data from the request body
+        const {
+            department,
+            hospital,
+            doctor,
             name,
             age,
             password,
@@ -12,11 +17,17 @@ const opdpatient_reg = async(req,res) =>{
             email,
             medicalHistory,
             medications,
-            subject,
-            emergencyContact
-          } = req.body;
-        
-          const newPatient = new Patient({
+            emergencyName,
+            relationship,
+            emergencyPhoneNumber,
+            appointmentDate
+        } = req.body;
+
+        // Create a new OPD patient record
+        const newPatient = new opdPatient({
+            department,
+            hospital,
+            doctor,
             name,
             age,
             password,
@@ -24,24 +35,28 @@ const opdpatient_reg = async(req,res) =>{
             address,
             phoneNumber,
             email,
-            medicalHistory,
-            medications,
-            subject,
-            emergencyContact,
-            dateOfRegistration: new Date(),
-          });
-    
-          await newPatient.save();
-          res.status(200).send({
-            success: true,
-            message: "Registered successfully",
-          });
-          console.log(newUser);
-    }catch(err){
-        res.status(500).send({
-            success: false,
-            message: "Patient didn't register",
-          });
+            medicalHistory: medicalHistory ? medicalHistory.split(',') : [],
+            medications: medications ? medications.split(',') : [],
+            emergencyContact: {
+                name: emergencyName,
+                relationship,
+                phoneNumber: emergencyPhoneNumber
+            },
+            appointmentDate
+        });
+
+        // Save the patient to the database
+        await newPatient.save();
+
+        // Respond with success message
+        res.status(201).json({
+            message: 'Patient registered successfully',
+            patient: newPatient
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'An error occurred while registering the patient', error: error.message });
     }
-    };
-    module.exports = opdpatient_reg;
+};
+
+module.exports = opd_register;

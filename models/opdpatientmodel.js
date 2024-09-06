@@ -1,53 +1,71 @@
 const mongoose = require('mongoose');
 
-
 const opdpatientSchema = new mongoose.Schema({
+  department: {
+    type: String,
+    required: true
+  },
+  hospital: {
+    type: String,
+    required: true
+  },
+  doctor: {
+    type: String,
+    required: true
+  },
   name: {
     type: String,
-    required: true,
+    required: true
   },
   age: {
     type: Number,
-    required: true,
+    required: true
   },
-  password:{
-    type : String,
+  password: {
+    type: String
   },
   gender: {
     type: String,
     enum: ['Male', 'Female', 'Other'],
-    required: true,
+    required: true
   },
   address: {
-   type: String,
+    type: String
   },
   phoneNumber: {
     type: String,
-    required: true,
+    required: true
   },
   email: {
     type: String,
     required: true,
-    unique: true,
+    unique: true
   },
   medicalHistory: {
-    type: [String], 
+    type: [String]
   },
   medications: {
-    type: [String], 
-  },
-  subject : {
-    type: String
+    type: [String]
   },
   emergencyContact: {
-    name: String,
-    relationship: String,
-    phoneNumber: String,
+    name: {
+      type: String
+    },
+    relationship: {
+      type: String
+    },
+    phoneNumber: {
+      type: String
+    }
   },
-  dateOfRegistration:{
+  appointmentDate: {
     type: Date,
-    default: Date.now,
+    required: true
   },
+  dateOfRegistration: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 const opdPatient = mongoose.model('opdPatient', opdpatientSchema);
